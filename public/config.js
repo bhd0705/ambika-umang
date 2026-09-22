@@ -103,10 +103,11 @@ window.__WEDDING_CONFIG__ = {
   showThingsToKnow: false,
 
   rsvp: {
-    mode: "whatsapp",
+    mode: "form",
     heading: "RSVP",
     subtext: "The Agrawal Family",
-    btnText: "YES, I'LL BE THERE"
+    btnText: "CONFIRM RSVP",
+    googleSheetEndpoint: ""
   },
 
   closing: {
