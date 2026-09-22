@@ -6056,3 +6056,57 @@
     border-radius: 10px;
   }
 }
+
+
+/* FINAL GALLERY IMAGE + EVENT ICONS */
+.gallery-section .gal-bg,
+.gallery-section .gal-bg-vignette {
+  display: none !important;
+}
+.gallery-section .gal-single-image-wrap {
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(94%, 900px) !important;
+  margin: 0 auto !important;
+  padding: 20px 0 50px !important;
+}
+.gallery-section .gal-single-image {
+  position: relative !important;
+  z-index: 3 !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* The title is deliberately split into two clean lines. */
+.farman-name .event-name-line {
+  display: block !important;
+  white-space: nowrap !important;
+}
+.farman-stop[data-event="rings-rhythms"] .farman-name {
+  font-size: clamp(2.35rem, 7.4vw, 3.5rem) !important;
+  line-height: .88 !important;
+  max-width: 94% !important;
+  overflow: visible !important;
+}
+@media (max-width: 620px) {
+  .farman-stop[data-event="rings-rhythms"] .farman-name {
+    font-size: clamp(2rem, 9vw, 3rem) !important;
+    line-height: .9 !important;
+  }
+}
+
+/* Event motifs: transparent artwork only — no circle, no card, no background. */
+.farman-motif,
+.farman-stop--main .farman-motif {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
