@@ -98,7 +98,7 @@ window.__WEDDING_CONFIG__ = {
   ],
 
   story: { show: false, storyMode: "story", storyText: "", tags: [] },
-  gallery: { show: true, layout: "single", photos: ["assets/gallery/img1.jpeg"] },
+  gallery: { show: false, layout: "single", photos: ["assets/gallery/img1.jpeg"] },
   thingsToKnow: [
     {
       id: "dresscode",
@@ -146,7 +146,7 @@ window.__WEDDING_CONFIG__ = {
   sections: {
     events: true,
     couple: false,
-    gallery: true,
+    gallery: false,
     thingsToKnow: true,
     rsvp: true,
     closing: true
