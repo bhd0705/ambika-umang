@@ -40,7 +40,7 @@
                 invLines[0].textContent = couple.bride;
                 invLines[invLines.length - 1].textContent = couple.groom;
               } else {
-                invNames.innerHTML = couple.bride + ' <span class="inv-amp">&amp;</span> ' + couple.groom;
+                invNames.innerHTML = '<span class="inv-name-line">' + couple.bride + '</span><span class="inv-amp">&amp;</span><span class="inv-name-line">' + couple.groom + '</span>';
               }
             }
             var closingNames = document.querySelector(".closing-names");
@@ -219,7 +219,7 @@
       <img class="inv-lotus-div" src="assets/invite/pn-inv-div-lotus-divider-x-v01.webp"
            alt="" aria-hidden="true" decoding="async">
 
-      <h2 class="inv-names" id="inviteTitle">Aarav <span class="inv-amp">&amp;</span> Meera</h2>
+      <h2 class="inv-names" id="inviteTitle"><span class="inv-name-line">Dr. Ambika</span><span class="inv-amp">&amp;</span><span class="inv-name-line">Dr. Umang</span></h2>
 
       <img class="inv-lotus-div" src="assets/invite/pn-inv-div-lotus-divider-x-v01.webp"
            alt="" aria-hidden="true" decoding="async">
