@@ -18,19 +18,40 @@ function setupSheet() {
   let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) sheet = ss.insertSheet(SHEET_NAME);
 
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow([
-      'Timestamp',
-      'RSVP Confirmation',
-      'Guest Name',
-      'Arrival Date',
-      'Contact No.',
-      'Wedding'
-    ]);
-    sheet.setFrozenRows(1);
-  }
-}
+  // Keep the RSVP sheet limited to the five fields we need.
+  const requiredHeaders = [
+    'Timestamp',
+    'RSVP Confirmation',
+    'Guest Name',
+    'Arrival Date',
+    'Contact No.'
+  ];
 
+  if (sheet.getLastRow() === 0) {
+    sheet.getRange(1, 1, 1, requiredHeaders.length).setValues([requiredHeaders]);
+    sheet.setFrozenRows(1);
+    return;
+  }
+
+  // Remove the old Wedding column if this sheet was created with the previous version.
+  const lastColumn = sheet.getLastColumn();
+  if (lastColumn > 0) {
+    const headers = sheet.getRange(1, 1, 1, lastColumn).getValues()[0];
+    for (let i = headers.length - 1; i >= 0; i--) {
+      if (String(headers[i]).trim().toLowerCase() === 'wedding') {
+        sheet.deleteColumn(i + 1);
+      }
+    }
+  }
+
+  // Ensure the first five headers are correct.
+  const currentLastColumn = sheet.getLastColumn();
+  if (currentLastColumn < requiredHeaders.length) {
+    sheet.insertColumnsAfter(Math.max(currentLastColumn, 1), requiredHeaders.length - currentLastColumn);
+  }
+  sheet.getRange(1, 1, 1, requiredHeaders.length).setValues([requiredHeaders]);
+  sheet.setFrozenRows(1);
+}
 function doGet() {
   return ContentService
     .createTextOutput('Ambika & Umang RSVP endpoint is running.')
@@ -45,13 +66,29 @@ function doPost(e) {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const sheet = ss.getSheetByName(SHEET_NAME);
 
+    const confirmation = String(p.confirmation || '').trim();
+    const guestName = String(p.guestName || '').trim();
+    const arrivalDate = String(p.arrivalDate || '').trim();
+    const contactNo = String(p.contactNo || '').trim();
+
+    // Server-side validation so invalid submissions cannot be written by bypassing the website.
+    if (!/^\\d{10}$/.test(contactNo)) {
+      throw new Error('Contact No. must contain exactly 10 digits.');
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const arrival = new Date(arrivalDate + 'T00:00:00');
+    if (!arrivalDate || isNaN(arrival.getTime()) || arrival <= today) {
+      throw new Error('Arrival Date must be after today.');
+    }
+
     sheet.appendRow([
       new Date(),
-      p.confirmation || '',
-      p.guestName || '',
-      p.arrivalDate || '',
-      p.contactNo || '',
-      p.wedding || 'Dr. Ambika & Dr. Umang'
+      confirmation,
+      guestName,
+      arrivalDate,
+      contactNo
     ]);
 
     return ContentService
