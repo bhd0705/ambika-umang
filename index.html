@@ -526,13 +526,14 @@
 
         <div class="rsvp-field">
           <label for="rsvpArrivalDate">Arrival Date</label>
-          <input id="rsvpArrivalDate" name="arrivalDate" type="date" required>
+          <input id="rsvpArrivalDate" name="arrivalDate" type="date" required aria-describedby="rsvpFormStatus">
         </div>
 
         <div class="rsvp-field">
           <label for="rsvpContact">Contact No.</label>
-          <input id="rsvpContact" name="contactNo" type="tel" inputmode="tel"
-                 autocomplete="tel" placeholder="Enter contact number" required>
+          <input id="rsvpContact" name="contactNo" type="tel" inputmode="numeric" autocomplete="tel"
+                 placeholder="10-digit mobile number" minlength="10" maxlength="10"
+                 pattern="[0-9]{10}" required aria-describedby="rsvpFormStatus">
         </div>
 
         <button class="rsvp-btn-primary rsvp-submit-btn" type="submit">
