@@ -42,7 +42,7 @@ window.__WEDDING_CONFIG__ = {
     {
       id: "rings-rhythms",
       icon: "assets/event/ico2-rings-rhythms.svg",
-      name: "RINGS & RHYTHMS",
+      name: "Rings & Rhythms",
       date: "2026-11-24",
       time: "6:00 PM onwards",
       venue: "The Royal Bengal Hall",
