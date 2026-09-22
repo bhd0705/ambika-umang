@@ -2356,7 +2356,17 @@ if (document.readyState !== "loading") initRSVP();
     }
   }
 
-  /* ── Calendar links — use ShaadiPath pipeline URLs ── */
+  /* ── Hide demo intro copy that is not part of the configured invitation ── */
+  var inviteKicker = document.querySelector('.inv-kicker');
+  if (inviteKicker) inviteKicker.textContent = '';
+  var blessingAlt = document.querySelector('.inv-blessing-alt');
+  if (blessingAlt && !invite.showGrandparents) blessingAlt.style.display = 'none';
+
+  /* ── RSVP family name ── */
+  var rsvpBody2 = document.querySelector('.rsvp-body');
+  if (rsvpBody2 && rsvp.subtext) rsvpBody2.textContent = rsvp.subtext;
+
+    /* ── Calendar links — use ShaadiPath pipeline URLs ── */
   if (C.calendarUrls) {
     var gcalBtn = document.getElementById('rsvpGcalBtn');
     var icalBtn = document.getElementById('rsvpIcalBtn');
