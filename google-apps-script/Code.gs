@@ -44,10 +44,14 @@ function setupSheet() {
     }
   }
 
-  // Ensure the first five headers are correct.
+  // Keep only the five RSVP columns. This also removes the old
+  // Wedding column/data that may have been left in column F.
   const currentLastColumn = sheet.getLastColumn();
-  if (currentLastColumn < requiredHeaders.length) {
-    sheet.insertColumnsAfter(Math.max(currentLastColumn, 1), requiredHeaders.length - currentLastColumn);
+  if (currentLastColumn > requiredHeaders.length) {
+    sheet.deleteColumns(requiredHeaders.length + 1, currentLastColumn - requiredHeaders.length);
+  }
+  if (sheet.getMaxColumns() < requiredHeaders.length) {
+    sheet.insertColumnsAfter(sheet.getMaxColumns(), requiredHeaders.length - sheet.getMaxColumns());
   }
   sheet.getRange(1, 1, 1, requiredHeaders.length).setValues([requiredHeaders]);
   sheet.setFrozenRows(1);
