@@ -76,10 +76,12 @@ function doPost(e) {
       throw new Error('Contact No. must contain exactly 10 digits.');
     }
 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const arrival = new Date(arrivalDate + 'T00:00:00');
-    if (!arrivalDate || isNaN(arrival.getTime()) || arrival <= today) {
+    const todayString = Utilities.formatDate(
+      new Date(),
+      Session.getScriptTimeZone(),
+      'yyyy-MM-dd'
+    );
+    if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(arrivalDate) || arrivalDate <= todayString) {
       throw new Error('Arrival Date must be after today.');
     }
 
