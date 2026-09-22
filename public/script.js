@@ -2464,7 +2464,9 @@ if (document.readyState !== "loading") initRSVP();
       today.setHours(0, 0, 0, 0);
       var tomorrow = new Date(today);
       tomorrow.setDate(tomorrow.getDate() + 1);
-      var minArrival = tomorrow.toISOString().slice(0, 10);
+      var minArrival = tomorrow.getFullYear() + '-' +
+        String(tomorrow.getMonth() + 1).padStart(2, '0') + '-' +
+        String(tomorrow.getDate()).padStart(2, '0');
 
       if (arrivalEl) {
         arrivalEl.min = minArrival;
