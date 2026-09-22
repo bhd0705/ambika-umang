@@ -98,7 +98,7 @@ window.__WEDDING_CONFIG__ = {
   ],
 
   story: { show: false, storyMode: "story", storyText: "", tags: [] },
-  gallery: { show: true, layout: "4", photos: [] },
+  gallery: { show: true, layout: "1", photos: ["assets/gallery/img1.jpeg"] },
   thingsToKnow: [
     {
       id: "dresscode",
