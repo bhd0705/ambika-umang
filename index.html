@@ -427,21 +427,14 @@
 
   <section class="section gallery-section" id="gallery" aria-labelledby="galTitle">
 
-    <!-- Courtyard background -->
-    <div class="gal-bg" aria-hidden="true"></div>
-    <div class="gal-bg-vignette" aria-hidden="true"></div>
-
-    <!-- Single gallery image -->
-    <div class="gal-single-image-wrap reveal-item">
-      <img
-        class="gal-single-image"
-        src="assets/gallery/img1.jpeg"
-        alt="Ambika & Umang"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        draggable="false">
+    <!-- Gallery Wall -->
+    <div class="gal-header reveal-item" id="galHeader">
+      <p class="gal-eyebrow">Captured Moments</p>
+      <h2 class="gal-title" id="galTitle">Gallery</h2>
+      <div class="gal-divider" aria-hidden="true"></div>
     </div>
+
+    <div class="gal-wall" id="galWall" role="list" aria-label="Photo gallery"></div>
 
   </section>
 
