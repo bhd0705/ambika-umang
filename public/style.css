@@ -2389,17 +2389,17 @@
       padding-top: 150%; /* PNG natural ratio 1536/1024 */
     }
     .gal-slot-hero .gal-photo-wrap {
-      clip-path: polygon(
-        15% 93%,
-        85% 93%,
-        85% 28%,
-        80% 26.5%,
-        65% 25.5%,
-        50% 25%,
-        35% 25.5%,
-        20% 26.5%,
-        15% 28%
-      );
+      inset: 0;
+      clip-path: none;
+      background: transparent;
+    }
+
+    .gal-slot-hero .gal-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      transform: none;
     }
 
     /* ── Gold dust inside each frame ── */
