@@ -2486,9 +2486,9 @@ if (document.readyState !== "loading") initRSVP();
       }
 
       /* Mobile: digits only, exactly 10 digits, Indian mobile prefix 6–9. */
-      var contact = contactEl.value.replace(/\\D/g, '').slice(0, 10);
+      var contact = contactEl.value.replace(/\D/g, '').slice(0, 10);
       contactEl.value = contact;
-      if (!/^[6-9]\\d{9}$/.test(contact)) {
+      if (!/^[6-9]\d{9}$/.test(contact)) {
         contactEl.classList.add('rsvp-invalid');
         rsvpForm.classList.add('is-error');
         if (statusEl) statusEl.textContent = 'Please enter a valid 10-digit mobile number starting with 6, 7, 8 or 9.';
@@ -2499,7 +2499,7 @@ if (document.readyState !== "loading") initRSVP();
 
       /* Arrival date must be strictly after today. */
       var arrivalValue = arrivalEl.value;
-      if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(arrivalValue) || arrivalValue < minArrival) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(arrivalValue) || arrivalValue < minArrival) {
         arrivalEl.classList.add('rsvp-invalid');
         rsvpForm.classList.add('is-error');
         if (statusEl) statusEl.textContent = 'Arrival date must be after today.';
