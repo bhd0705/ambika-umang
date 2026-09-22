@@ -133,6 +133,6 @@ window.__WEDDING_CONFIG__ = {
     gallery: false,
     thingsToKnow: false,
     rsvp: true,
-    closing: false
+    closing: true
   }
 };
