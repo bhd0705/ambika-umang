@@ -2458,18 +2458,54 @@ if (document.readyState !== "loading") initRSVP();
         return;
       }
 
+      var arrivalEl = document.getElementById('rsvpArrivalDate');
+      var contactEl = document.getElementById('rsvpContact');
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      var tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      var minArrival = tomorrow.toISOString().slice(0, 10);
+
+      if (arrivalEl) {
+        arrivalEl.min = minArrival;
+      }
+
       if (!rsvpForm.checkValidity()) {
         rsvpForm.reportValidity();
+        return;
+      }
+
+      var contact = contactEl ? contactEl.value.trim() : '';
+      if (!/^\\d{10}$/.test(contact)) {
+        if (contactEl) {
+          contactEl.setCustomValidity('Please enter exactly 10 digits for the mobile number.');
+          contactEl.reportValidity();
+          contactEl.setCustomValidity('');
+        }
+        if (statusEl) statusEl.textContent = 'Please enter a valid 10-digit mobile number.';
+        rsvpForm.classList.add('is-error');
+        return;
+      }
+
+      var arrivalValue = arrivalEl ? arrivalEl.value : '';
+      var arrivalDate = arrivalValue ? new Date(arrivalValue + 'T00:00:00') : null;
+      if (!arrivalDate || arrivalDate <= today) {
+        if (arrivalEl) {
+          arrivalEl.setCustomValidity('Arrival date must be after today.');
+          arrivalEl.reportValidity();
+          arrivalEl.setCustomValidity('');
+        }
+        if (statusEl) statusEl.textContent = 'Arrival date must be after today.';
+        rsvpForm.classList.add('is-error');
         return;
       }
 
       var data = new URLSearchParams();
       data.append('confirmation', document.getElementById('rsvpConfirmation').value);
       data.append('guestName', document.getElementById('rsvpGuestName').value.trim());
-      data.append('arrivalDate', document.getElementById('rsvpArrivalDate').value);
-      data.append('contactNo', document.getElementById('rsvpContact').value.trim());
+      data.append('arrivalDate', arrivalValue);
+      data.append('contactNo', contact);
       data.append('submittedAt', new Date().toISOString());
-      data.append('wedding', (couple.bride || '') + ' & ' + (couple.groom || ''));
 
       if (submitBtn) {
         submitBtn.disabled = true;
