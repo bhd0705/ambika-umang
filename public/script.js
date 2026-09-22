@@ -575,7 +575,7 @@ function renderEvents() {
     const article = document.createElement("article");
 
     /* Alternate left / right alignment; mark main event */
-    const isMain   = evt.id === "shaadi";
+    const isMain   = evt.id === "starlit-soiree" || evt.id === "shaadi" || i === EVENTS.length - 1;
     const side     = i % 2 === 0 ? "farman-left" : "farman-right";
     article.className = `farman-stop ${side}${isMain ? " farman-stop--main" : ""}`;
     article.setAttribute("role", "listitem");
@@ -2192,7 +2192,7 @@ if (document.readyState !== "loading") initRSVP();
   /* ── Invite — couple names ── */
   var invNames = document.querySelector('.inv-names');
   if (invNames && couple.bride && couple.groom) {
-    invNames.innerHTML = couple.bride + ' <span class="inv-amp">&amp;</span> ' + couple.groom;
+    invNames.innerHTML = '<span class="inv-name-line">' + couple.bride + '</span><span class="inv-amp">&amp;</span><span class="inv-name-line">' + couple.groom + '</span>';
   }
 
   /* ── Invite — parents ── */
