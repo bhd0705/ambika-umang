@@ -6041,58 +6041,14 @@
 }
 
 
-/* SINGLE GALLERY IMAGE */
-.gallery-section .gal-single-image-wrap {
-  width: min(92%, 760px);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.gallery-section .gal-single-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 85svh;
-  object-fit: contain;
-  border-radius: 14px;
-  box-shadow: 0 18px 50px rgba(0,0,0,.35);
-}
-@media (max-width: 620px) {
-  .gallery-section .gal-single-image-wrap {
-    width: 94%;
-  }
-  .gallery-section .gal-single-image {
-    max-height: 78svh;
-    border-radius: 10px;
-  }
-}
-
-
-/* FINAL GALLERY IMAGE + EVENT ICONS */
+/* Gallery wall restored: the single-photo override is removed. */
+/* Gallery wall restored: hide only the obsolete single-image styles. */
+.gallery-section .gal-single-image-wrap,
+.gallery-section .gal-single-image { display: none !important; }
 .gallery-section .gal-bg,
-.gallery-section .gal-bg-vignette {
-  display: none !important;
-}
-.gallery-section .gal-single-image-wrap {
-  position: relative !important;
-  z-index: 2 !important;
-  width: min(94%, 900px) !important;
-  margin: 0 auto !important;
-  padding: 20px 0 50px !important;
-}
-.gallery-section .gal-single-image {
-  position: relative !important;
-  z-index: 3 !important;
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
+.gallery-section .gal-bg-vignette { display: block; }
 
+/* The title is deliberately split into two clean lines. */
 /* The title is deliberately split into two clean lines. */
 .farman-name .event-name-line {
   display: block !important;
@@ -6123,45 +6079,3 @@
 }
 
 
-/* FULL-PAGE GALLERY IMAGE — fills the whole screen; a blurred copy of the
-   same photo covers any space the uncropped image leaves above/below. */
-.gallery-section {
-  position: relative !important;
-  width: 100% !important;
-  height: 100svh !important;
-  min-height: 100svh !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  overflow: hidden !important;
-  background: #efe2c8 url("assets/gallery/img1.jpeg") center / cover no-repeat !important;
-}
-.gallery-section::before {
-  content: "";
-  position: absolute;
-  inset: -40px;
-  background: inherit;
-  filter: blur(24px) saturate(1.05);
-  z-index: 0;
-}
-.gallery-section .gal-single-image-wrap {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 2 !important;
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-.gallery-section .gal-single-image {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
