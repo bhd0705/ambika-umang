@@ -21,7 +21,7 @@ window.__WEDDING_CONFIG__ = {
   events: [
     {
       id: "welcome-lunch",
-      icon: "assets/event/pn-evt-ico-welcome-lunch.svg",
+      icon: "assets/event/ico2-welcome-lunch.svg",
       name: "Savour the Beginning",
       date: "2026-11-24",
       time: "12:30 PM",
@@ -31,7 +31,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "bhaat",
-      icon: "assets/event/pn-evt-ico-bhaat.svg",
+      icon: "assets/event/ico2-bhaat.svg",
       name: "Mamere Ki Saugaat",
       date: "2026-11-24",
       time: "2:00 PM",
@@ -41,7 +41,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "rings-rhythms",
-      icon: "assets/event/pn-evt-ico-rings-rhythms.svg",
+      icon: "assets/event/ico2-rings-rhythms.svg",
       name: "RINGS & RHYTHMS",
       date: "2026-11-24",
       time: "6:00 PM onwards",
@@ -51,7 +51,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "midnight-mehfil",
-      icon: "assets/event/pn-evt-ico-midnight-mehfil.svg",
+      icon: "assets/event/ico2-midnight-mehfil.svg",
       name: "The Midnight Mehfil",
       date: "2026-11-24",
       time: "11:00 PM onwards",
@@ -61,7 +61,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "splash-of-gold",
-      icon: "assets/event/pn-evt-ico-haldi.svg",
+      icon: "assets/event/ico2-haldi.svg",
       name: "Splash of Gold",
       date: "2026-11-25",
       time: "10:00 AM",
@@ -71,7 +71,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "tilak",
-      icon: "assets/event/pn-evt-ico-tilak.svg",
+      icon: "assets/event/ico2-tilak.svg",
       name: "A Touch of Tradition",
       date: "2026-11-25",
       time: "5:00 PM",
@@ -81,7 +81,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "starlit-soiree",
-      icon: "assets/event/pn-evt-ico-shaadi.svg",
+      icon: "assets/event/ico2-shaadi.svg",
       name: "The Starlit Soirée",
       date: "2026-11-25",
       time: "",
