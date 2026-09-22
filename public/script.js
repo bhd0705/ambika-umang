@@ -598,8 +598,12 @@ function renderEvents() {
                src="${evt.icon}" alt="${evt.name} motif" decoding="async">
           <h3 class="farman-name">${evt.name}</h3>
           <div class="farman-rule" aria-hidden="true"></div>
-          <p class="farman-datetime">${evt.date} &middot; ${evt.time}</p>
-          <p class="farman-venue">${evt.venue}</p>
+          ${evt.schedule && evt.schedule.length
+            ? `<div class="farman-datetime farman-schedule">${evt.schedule.map(function(line) {
+                return '<span>' + line + '</span>';
+              }).join('')}</div>`
+            : `<p class="farman-datetime">${evt.date}${evt.time ? ' &middot; ' + evt.time : ''}</p>`}
+          ${evt.venue ? `<p class="farman-venue">${evt.venue}</p>` : ''}
           ${noteHtml}${mapHtml}${evt.map ? `<div class="farman-map-rule" aria-hidden="true"></div>` : ""}
         </div>
       </div>`.trim();
@@ -1761,7 +1765,8 @@ function buildTTKCard(item, isLastOdd) {
         time:  ev.time  || '',
         venue: ev.venue || '',
         note:  ev.desc  || '',
-        map:   ev.mapsLink || ''
+        map:   ev.mapsLink || '',
+        schedule: Array.isArray(ev.schedule) ? ev.schedule : []
       };
     });
     EVENTS.splice(0, EVENTS.length);
