@@ -5941,16 +5941,33 @@
 
 /* The closing names should stay together on one line on phones. */
 .closing-names {
-  white-space: nowrap !important;
+  white-space: normal !important;
   overflow: visible;
+  width: min(92%, 900px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   letter-spacing: 0 !important;
-  font-size: clamp(2rem, 8vw, 4.5rem) !important;
-  line-height: 1 !important;
+  font-size: clamp(2.8rem, 9vw, 5rem) !important;
+  line-height: .92 !important;
+  text-align: center !important;
+}
+
+.closing-name-line,
+.closing-name-amp {
+  display: block !important;
+}
+
+.closing-name-amp {
+  font-size: .72em !important;
+  line-height: .8 !important;
+  margin: .08em 0 .04em !important;
 }
 
 @media (max-width: 620px) {
   .closing-names {
-    font-size: clamp(1.85rem, 8.2vw, 3.15rem) !important;
+    width: 94% !important;
+    font-size: clamp(2.35rem, 12vw, 4rem) !important;
+    line-height: .92 !important;
   }
 }
 
