@@ -72,7 +72,7 @@ function doPost(e) {
     const contactNo = String(p.contactNo || '').trim();
 
     // Server-side validation so invalid submissions cannot be written by bypassing the website.
-    if (!/^\\d{10}$/.test(contactNo)) {
+    if (!/^\d{10}$/.test(contactNo)) {
       throw new Error('Contact No. must contain exactly 10 digits.');
     }
 
