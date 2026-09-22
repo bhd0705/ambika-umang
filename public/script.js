@@ -2441,6 +2441,66 @@ if (document.readyState !== "loading") initRSVP();
   var closingDate = document.querySelector('.closing-date');
   if (closingDate && couple.date) closingDate.textContent = fmtDot(couple.date);
 
+  /* ── RSVP form → Google Sheets ── */
+  var rsvpForm = document.getElementById('rsvpForm');
+  if (rsvpForm) {
+    rsvpForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var endpoint = (rsvp.googleSheetEndpoint || '').trim();
+      var statusEl = document.getElementById('rsvpFormStatus');
+      var submitBtn = rsvpForm.querySelector('.rsvp-submit-btn');
+      var originalLabel = submitBtn ? submitBtn.querySelector('.rsvp-btn-inner').textContent : 'CONFIRM RSVP';
+
+      if (!endpoint) {
+        if (statusEl) statusEl.textContent = 'RSVP form is ready, but the Google Sheet connection has not been configured yet.';
+        rsvpForm.classList.add('is-error');
+        return;
+      }
+
+      if (!rsvpForm.checkValidity()) {
+        rsvpForm.reportValidity();
+        return;
+      }
+
+      var data = new URLSearchParams();
+      data.append('confirmation', document.getElementById('rsvpConfirmation').value);
+      data.append('guestName', document.getElementById('rsvpGuestName').value.trim());
+      data.append('arrivalDate', document.getElementById('rsvpArrivalDate').value);
+      data.append('contactNo', document.getElementById('rsvpContact').value.trim());
+      data.append('submittedAt', new Date().toISOString());
+      data.append('wedding', (couple.bride || '') + ' & ' + (couple.groom || ''));
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        var inner = submitBtn.querySelector('.rsvp-btn-inner');
+        if (inner) inner.textContent = 'SENDING...';
+      }
+      rsvpForm.classList.remove('is-success', 'is-error');
+      if (statusEl) statusEl.textContent = 'Saving your RSVP...';
+
+      fetch(endpoint, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: data.toString()
+      }).then(function () {
+        rsvpForm.classList.add('is-success');
+        if (statusEl) statusEl.textContent = 'Thank you! Your RSVP has been recorded.';
+        rsvpForm.reset();
+      }).catch(function () {
+        rsvpForm.classList.add('is-error');
+        if (statusEl) statusEl.textContent = 'We could not save your RSVP. Please try again.';
+      }).finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          var inner = submitBtn.querySelector('.rsvp-btn-inner');
+          if (inner) inner.textContent = originalLabel;
+        }
+      });
+    });
+  }
+
   /* ── Music ── */
   var audioEl = document.getElementById('bgMusic');
   if (audioEl) {
