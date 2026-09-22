@@ -6,62 +6,7 @@
 ───────────────────────────────────── */
 const MAP_URL = "https://www.google.com/maps/search/?api=1&query=The+Oberoi+Udaivilas+Udaipur+Rajasthan";
 
-const EVENTS = [
-  {
-    id: "mehendi",
-    icon: "assets/event/pn-evt-ico-mehendi-x-v01.webp",
-    name: "Mehendi",
-    date: "11 Dec 2026", time: "4:00 PM",
-    venue: "Lotus Courtyard",
-    note: "Greens & florals encouraged",
-    map: MAP_URL
-  },
-  {
-    id: "haldi",
-    icon: "assets/event/pn-evt-ico-haldi-x-v01.webp",
-    name: "Haldi",
-    date: "12 Dec 2026", time: "10:00 AM",
-    venue: "Poolside Courtyard",
-    note: "Yellow / ivory tones",
-    map: MAP_URL
-  },
-  {
-    id: "sangeet",
-    icon: "assets/event/pn-evt-ico-sangeet-x-v01.webp",
-    name: "Sangeet",
-    date: "12 Dec 2026", time: "7:30 PM",
-    venue: "Royal Ballroom",
-    note: "An evening of music and performances",
-    map: MAP_URL
-  },
-  {
-    id: "shaadi",
-    icon: "assets/event/pn-evt-ico-shaadi-x-v01.webp",
-    name: "Shaadi",
-    date: "13 Dec 2026", time: "9:30 AM",
-    venue: "Lake Mandap",
-    note: "Traditional Indian attire",
-    map: MAP_URL
-  },
-  {
-    id: "reception",
-    icon: "assets/event/pn-evt-ico-reception-x-v01.webp",
-    name: "Reception",
-    date: "13 Dec 2026", time: "7:30 PM",
-    venue: "Palace Lawns",
-    note: "Candlelit dinner and celebration",
-    map: MAP_URL
-  },
-  {
-    id: "vidaai",
-    icon: "assets/event/pn-evt-ico-vidaai-x-v01.webp",
-    name: "Vidaai",
-    date: "14 Dec 2026", time: "9:00 AM",
-    venue: "Main Courtyard",
-    note: "A quiet farewell with blessings",
-    map: MAP_URL
-  }
-];
+const EVENTS = [];
 
 /* ─────────────────────────────────────
    Config — asset paths
