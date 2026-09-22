@@ -41,7 +41,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "rings-rhythms",
-      icon: "assets/event/pn-evt-ico-sangeet-x-v01.webp",
+      icon: "assets/event/pn-evt-ico-rings-rhythms.svg",
       name: "RINGS & RHYTHMS",
       date: "2026-11-24",
       time: "6:00 PM onwards",
@@ -61,7 +61,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "splash-of-gold",
-      icon: "assets/event/pn-evt-ico-haldi-x-v01.webp",
+      icon: "assets/event/pn-evt-ico-haldi.svg",
       name: "Splash of Gold",
       date: "2026-11-25",
       time: "10:00 AM",
@@ -81,7 +81,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "starlit-soiree",
-      icon: "assets/event/pn-evt-ico-shaadi-x-v01.webp",
+      icon: "assets/event/pn-evt-ico-shaadi.svg",
       name: "The Starlit Soirée",
       date: "2026-11-25",
       time: "",
@@ -98,7 +98,7 @@ window.__WEDDING_CONFIG__ = {
   ],
 
   story: { show: false, storyMode: "story", storyText: "", tags: [] },
-  gallery: { show: false, layout: "single", photos: ["assets/gallery/img1.jpeg"] },
+  gallery: { show: true, layout: "single", photos: ["assets/gallery/img1.jpeg"] },
   thingsToKnow: [
     {
       id: "dresscode",
@@ -146,7 +146,7 @@ window.__WEDDING_CONFIG__ = {
   sections: {
     events: true,
     couple: false,
-    gallery: false,
+    gallery: true,
     thingsToKnow: true,
     rsvp: true,
     closing: true
