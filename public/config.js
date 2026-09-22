@@ -107,7 +107,7 @@ window.__WEDDING_CONFIG__ = {
     heading: "RSVP",
     subtext: "The Agrawal Family",
     btnText: "CONFIRM RSVP",
-    googleSheetEndpoint: ""
+    googleSheetEndpoint: "https://script.google.com/macros/s/AKfycbxjKLl0QSszCttmwcsDQsBPPk3KNf-zt5i4UwxSEHh1vhmXYJy2b86ezHEx4-6aMNmTOw/exec"
   },
 
   closing: {
