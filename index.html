@@ -507,16 +507,41 @@
 
       <p class="rsvp-body rsvp-reveal">The Agrawal Family</p>
 
-      <!-- Primary CTA -->
-      <div class="rsvp-cta-wrap rsvp-reveal">
-        <a class="rsvp-btn-primary"
-           href="https://wa.me/910000000000?text=Yes%2C%20I%27ll%20be%20there%20%E2%80%94%20Aarav%20%26%20Meera%27s%20celebration!"
-           target="_blank" rel="noreferrer"
-           aria-label="RSVP — Yes, I'll be there. Opens WhatsApp.">
-          <span class="rsvp-btn-inner">YES, I'LL BE THERE</span>
-        </a>
-        <p class="rsvp-helper">You'll be redirected to WhatsApp to confirm your attendance.</p>
-      </div>
+      <!-- RSVP confirmation form -->
+      <form class="rsvp-form rsvp-reveal" id="rsvpForm" novalidate>
+        <div class="rsvp-field">
+          <label for="rsvpConfirmation">RSVP Confirmation</label>
+          <select id="rsvpConfirmation" name="confirmation" required>
+            <option value="" selected disabled>Select confirmation</option>
+            <option value="Yes - Attending">Yes, I'll be there</option>
+            <option value="No - Not Attending">Sorry, I can't attend</option>
+          </select>
+        </div>
+
+        <div class="rsvp-field">
+          <label for="rsvpGuestName">Guest Name</label>
+          <input id="rsvpGuestName" name="guestName" type="text" autocomplete="name"
+                 placeholder="Enter guest name" required>
+        </div>
+
+        <div class="rsvp-field">
+          <label for="rsvpArrivalDate">Arrival Date</label>
+          <input id="rsvpArrivalDate" name="arrivalDate" type="date" required>
+        </div>
+
+        <div class="rsvp-field">
+          <label for="rsvpContact">Contact No.</label>
+          <input id="rsvpContact" name="contactNo" type="tel" inputmode="tel"
+                 autocomplete="tel" placeholder="Enter contact number" required>
+        </div>
+
+        <button class="rsvp-btn-primary rsvp-submit-btn" type="submit">
+          <span class="rsvp-btn-inner">CONFIRM RSVP</span>
+        </button>
+        <p class="rsvp-helper" id="rsvpFormStatus" role="status" aria-live="polite">
+          Your RSVP will be securely recorded.
+        </p>
+      </form>
 
       <!-- Save the Date -->
       <div class="rsvp-std rsvp-reveal">
