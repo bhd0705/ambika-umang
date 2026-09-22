@@ -1855,62 +1855,6 @@ Sound.init();
 ═══════════════════════════════════════════════════════════════ */
 
 /* ── Wedding event data (sourced from EVENTS above) ── */
-const RSVP_EVENT = {
-  title:    "Aarav & Meera's Wedding",
-  // Shaadi on 13 Dec 2026, 9:30 AM, 3 hours, IST (UTC+5:30)
-  startUTC: "20261213T040000Z", // 09:30 IST → 04:00 UTC
-  endUTC:   "20261213T070000Z", // 12:30 IST → 07:00 UTC
-  location: "The Oberoi Udaivilas, Udaipur, Rajasthan, India",
-  description: "Join us for the wedding of Aarav & Meera. Dress code: Traditional Indian attire."
-};
-
-/* ── Calendar link builders ── */
-function buildGCalLink(e) {
-  const p = new URLSearchParams({
-    action: "TEMPLATE",
-    text:   e.title,
-    dates:  `${e.startUTC}/${e.endUTC}`,
-    location: e.location,
-    details:  e.description
-  });
-  return "https://calendar.google.com/calendar/render?" + p.toString();
-}
-
-function buildICSContent(e) {
-  const now = new Date().toISOString().replace(/[-:.]/g, "").slice(0, 15) + "Z";
-  return [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Pichwai Noor//Wedding//EN",
-    "BEGIN:VEVENT",
-    `DTSTART:${e.startUTC}`,
-    `DTEND:${e.endUTC}`,
-    `DTSTAMP:${now}`,
-    `SUMMARY:${e.title}`,
-    `LOCATION:${e.location}`,
-    `DESCRIPTION:${e.description}`,
-    "STATUS:CONFIRMED",
-    "END:VEVENT",
-    "END:VCALENDAR"
-  ].join("\r\n");
-}
-
-function wireCalendarButtons() {
-  const gcal = document.getElementById("rsvpGcalBtn");
-  const ical = document.getElementById("rsvpIcalBtn");
-  if (!gcal || !ical) return;
-
-  // If Phase 2 already wired real couple URLs, don't overwrite with demo data
-  const cfg = (typeof window !== 'undefined') && window.__WEDDING_CONFIG__;
-  if (cfg && cfg.calendarUrls) return;
-
-  gcal.href = buildGCalLink(RSVP_EVENT);
-
-  // iCal: data URI (works cross-browser; download attr triggers save)
-  const icsBlob = new Blob([buildICSContent(RSVP_EVENT)], { type: "text/calendar" });
-  ical.href = URL.createObjectURL(icsBlob);
-}
-
 /* ── Fireworks ── */
 function initRSVPFireworks(canvas) {
   const ctx = canvas.getContext("2d");
@@ -2025,8 +1969,7 @@ function initRSVPReveal() {
 
 /* ── Boot ── */
 function initRSVP() {
-  wireCalendarButtons();
-  initRSVPReveal();
+initRSVPReveal();
   const canvas = document.getElementById("rsvpFireworksCanvas");
   if (canvas) initRSVPFireworks(canvas);
 }
@@ -2395,43 +2338,6 @@ if (document.readyState !== "loading") initRSVP();
   /* ── RSVP family name ── */
   var rsvpBody2 = document.querySelector('.rsvp-body');
   if (rsvpBody2 && rsvp.subtext) rsvpBody2.textContent = rsvp.subtext;
-
-    /* ── Calendar links — use ShaadiPath pipeline URLs ── */
-  if (C.calendarUrls) {
-    var gcalBtn = document.getElementById('rsvpGcalBtn');
-    var icalBtn = document.getElementById('rsvpIcalBtn');
-    if (gcalBtn) gcalBtn.href = C.calendarUrls.google;
-    if (icalBtn) {
-      var dlName = ((couple.bride || 'bride') + '-' + (couple.groom || 'groom') + '-wedding.ics')
-        .toLowerCase().replace(/\s+/g, '-');
-      // Build a valid all-day ICS and serve it as a Blob URL.
-      // (The pipeline's data: URI is malformed for Apple and blocked by iOS Safari.)
-      var icsDate = (couple.date || '').replace(/-/g, '');
-      if (icsDate) {
-        var endDate = new Date(couple.date);
-        endDate.setDate(endDate.getDate() + 1);
-        var icsEnd = endDate.toISOString().slice(0, 10).replace(/-/g, '');
-        var icsBody = [
-          'BEGIN:VCALENDAR',
-          'VERSION:2.0',
-          'PRODID:-//ShaadiPath//Wedding//EN',
-          'BEGIN:VEVENT',
-          'DTSTART;VALUE=DATE:' + icsDate,
-          'DTEND;VALUE=DATE:' + icsEnd,
-          'SUMMARY:' + ((couple.bride || 'Bride') + ' weds ' + (couple.groom || 'Groom')),
-          'LOCATION:' + (couple.venue || ''),
-          'STATUS:CONFIRMED',
-          'END:VEVENT',
-          'END:VCALENDAR'
-        ].join('\r\n');
-        var icalBlob = new Blob([icsBody], { type: 'text/calendar;charset=utf-8' });
-        icalBtn.href = URL.createObjectURL(icalBlob);
-      } else {
-        icalBtn.href = C.calendarUrls.apple;
-      }
-      icalBtn.setAttribute('download', dlName);
-    }
-  }
 
   /* ── Closing section ── */
   var closingNames = document.querySelector('.closing-names');
