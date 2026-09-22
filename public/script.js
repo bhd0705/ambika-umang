@@ -2472,35 +2472,43 @@ if (document.readyState !== "loading") initRSVP();
         arrivalEl.min = minArrival;
       }
 
-      if (!rsvpForm.checkValidity()) {
-        rsvpForm.reportValidity();
-        return;
+      /* Required fields first. */
+      var confirmationEl = document.getElementById('rsvpConfirmation');
+      var guestEl = document.getElementById('rsvpGuestName');
+      var requiredFields = [confirmationEl, guestEl, arrivalEl, contactEl];
+      for (var rf = 0; rf < requiredFields.length; rf++) {
+        if (!requiredFields[rf] || !String(requiredFields[rf].value || '').trim()) {
+          rsvpForm.classList.add('is-error');
+          if (statusEl) statusEl.textContent = 'Please complete all RSVP fields.';
+          if (requiredFields[rf]) requiredFields[rf].focus();
+          return;
+        }
       }
 
-      var contact = contactEl ? contactEl.value.trim() : '';
-      if (!/^\\d{10}$/.test(contact)) {
-        if (contactEl) {
-          contactEl.setCustomValidity('Please enter exactly 10 digits for the mobile number.');
-          contactEl.reportValidity();
-          contactEl.setCustomValidity('');
-        }
-        if (statusEl) statusEl.textContent = 'Please enter a valid 10-digit mobile number.';
+      /* Mobile: digits only, exactly 10 digits, Indian mobile prefix 6–9. */
+      var contact = contactEl.value.replace(/\\D/g, '').slice(0, 10);
+      contactEl.value = contact;
+      if (!/^[6-9]\\d{9}$/.test(contact)) {
+        contactEl.classList.add('rsvp-invalid');
         rsvpForm.classList.add('is-error');
+        if (statusEl) statusEl.textContent = 'Please enter a valid 10-digit mobile number starting with 6, 7, 8 or 9.';
+        contactEl.focus();
         return;
       }
+      contactEl.classList.remove('rsvp-invalid');
 
-      var arrivalValue = arrivalEl ? arrivalEl.value : '';
-      var arrivalDate = arrivalValue ? new Date(arrivalValue + 'T00:00:00') : null;
-      if (!arrivalDate || arrivalDate <= today) {
-        if (arrivalEl) {
-          arrivalEl.setCustomValidity('Arrival date must be after today.');
-          arrivalEl.reportValidity();
-          arrivalEl.setCustomValidity('');
-        }
+      /* Arrival date must be strictly after today. */
+      var arrivalValue = arrivalEl.value;
+      if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(arrivalValue) || arrivalValue < minArrival) {
+        arrivalEl.classList.add('rsvp-invalid');
+        rsvpForm.classList.add('is-error');
         if (statusEl) statusEl.textContent = 'Arrival date must be after today.';
-        rsvpForm.classList.add('is-error');
+        arrivalEl.focus();
         return;
       }
+      arrivalEl.classList.remove('rsvp-invalid');
+
+      rsvpForm.classList.remove('is-error');
 
       var data = new URLSearchParams();
       data.append('confirmation', document.getElementById('rsvpConfirmation').value);
