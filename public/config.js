@@ -98,9 +98,30 @@ window.__WEDDING_CONFIG__ = {
   ],
 
   story: { show: false, storyMode: "story", storyText: "", tags: [] },
-  gallery: { show: false, layout: "skip", photos: [] },
-  thingsToKnow: [],
-  showThingsToKnow: false,
+  gallery: { show: true, layout: "4", photos: [] },
+  thingsToKnow: [
+    {
+      id: "dresscode",
+      label: "Dress Code",
+      value: "Festive Indian elegance. Sarees, lehengas and sherwanis are warmly encouraged."
+    },
+    {
+      id: "venue",
+      label: "Venue",
+      value: "Tiger Palace by Soaltee, Bhairahawa, Nepal. All celebrations take place at the venue."
+    },
+    {
+      id: "hotel",
+      label: "Stay Options",
+      value: "Guests staying at the venue can make their accommodation arrangements in advance."
+    },
+    {
+      id: "whatsapp",
+      label: "Wedding Hashtag",
+      value: "Share your favourite moments with the family and friends celebrating Ambika & Umang."
+    }
+  ],
+  showThingsToKnow: true,
 
   rsvp: {
     mode: "form",
@@ -130,8 +151,8 @@ window.__WEDDING_CONFIG__ = {
   sections: {
     events: true,
     couple: false,
-    gallery: false,
-    thingsToKnow: false,
+    gallery: true,
+    thingsToKnow: true,
     rsvp: true,
     closing: true
   }
