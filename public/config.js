@@ -98,7 +98,7 @@ window.__WEDDING_CONFIG__ = {
   ],
 
   story: { show: false, storyMode: "story", storyText: "", tags: [] },
-  gallery: { show: true, layout: "4", photos: [] },
+  gallery: { show: true, layout: "single", photos: ["assets/gallery/img1.jpeg"] },
   thingsToKnow: [
     {
       id: "dresscode",
@@ -109,11 +109,6 @@ window.__WEDDING_CONFIG__ = {
       id: "venue",
       label: "Venue",
       value: "Tiger Palace by Soaltee, Bhairahawa, Nepal. All celebrations take place at the venue."
-    },
-    {
-      id: "hotel",
-      label: "Stay Options",
-      value: "Guests staying at the venue can make their accommodation arrangements in advance."
     },
     {
       id: "whatsapp",
