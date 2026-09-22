@@ -5971,3 +5971,43 @@
   min-height: 1.35em;
   transition: color .2s ease, opacity .2s ease;
 }
+
+
+/* FINAL TYPOGRAPHY LOCK — EVENT TITLES */
+/* Use one font face and one visual treatment for every event title. */
+.farman-name,
+.farman-stop .farman-name,
+.farman-stop--main .farman-name,
+.farman-name * {
+  font-family: "Parisienne", cursive !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  text-align: center !important;
+  font-variant: normal !important;
+  font-feature-settings: normal !important;
+  text-rendering: geometricPrecision;
+}
+
+/* Keep RINGS & RHYTHMS balanced like the supplied invitation artwork. */
+.farman-stop[data-event="rings-rhythms"] .farman-name {
+  font-size: clamp(2.65rem, 8.2vw, 4rem) !important;
+  line-height: .88 !important;
+  max-width: 86% !important;
+  margin-inline: auto !important;
+}
+
+/* The final wedding title gets the same script, scaled only for fit. */
+.farman-stop[data-event="starlit-soiree"] .farman-name {
+  font-size: clamp(2.55rem, 7.8vw, 3.7rem) !important;
+  line-height: .92 !important;
+  max-width: 88% !important;
+  margin-inline: auto !important;
+}
+
+@media (max-width: 620px) {
+  .farman-stop[data-event="rings-rhythms"] .farman-name {
+    font-size: clamp(2.35rem, 9.2vw, 3.25rem) !important;
+  }
+}
