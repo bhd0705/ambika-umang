@@ -81,7 +81,7 @@ function doPost(e) {
       Session.getScriptTimeZone(),
       'yyyy-MM-dd'
     );
-    if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(arrivalDate) || arrivalDate <= todayString) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(arrivalDate) || arrivalDate <= todayString) {
       throw new Error('Arrival Date must be after today.');
     }
 
