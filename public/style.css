@@ -3735,6 +3735,67 @@
       text-shadow: 0 2px 18px rgba(0,0,0,.55);
     }
 
+    /* ── RSVP confirmation form ── */
+    .rsvp-form {
+      width: min(100%, 380px);
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      margin-top: 4px;
+    }
+    .rsvp-field {
+      width: 100%;
+      text-align: left;
+    }
+    .rsvp-field label {
+      display: block;
+      margin: 0 0 6px 4px;
+      font-family: var(--display);
+      font-size: .86rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(247,238,220,.78);
+    }
+    .rsvp-field input,
+    .rsvp-field select {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid rgba(216,169,87,.48);
+      border-radius: 8px;
+      outline: none;
+      background: rgba(20,12,19,.48);
+      color: var(--ivory);
+      font: 500 1rem var(--display);
+      backdrop-filter: blur(5px);
+    }
+    .rsvp-field input::placeholder { color: rgba(247,238,220,.48); }
+    .rsvp-field input:focus,
+    .rsvp-field select:focus {
+      border-color: rgba(216,169,87,.9);
+      box-shadow: 0 0 0 3px rgba(216,169,87,.10);
+    }
+    .rsvp-field select option {
+      background: #241520;
+      color: var(--ivory);
+    }
+    .rsvp-submit-btn {
+      width: 100%;
+      margin-top: 5px;
+      border: 0;
+      cursor: pointer;
+    }
+    .rsvp-submit-btn:disabled {
+      opacity: .58;
+      cursor: wait;
+    }
+    .rsvp-form .rsvp-helper {
+      margin: 2px 0 0;
+    }
+    .rsvp-form.is-success .rsvp-helper { color: rgba(216,169,87,.95); }
+    .rsvp-form.is-error .rsvp-helper { color: #f1b2b2; }
+
     /* ── Primary RSVP CTA ── */
     .rsvp-cta-wrap {
       display: flex;
