@@ -72,6 +72,13 @@ function doPost(e) {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const sheet = ss.getSheetByName(SHEET_NAME);
 
+    // Remove any legacy columns after Contact No. before every RSVP write.
+    // This also removes the old Wedding column from an existing sheet.
+    const lastColumnBeforeWrite = sheet.getLastColumn();
+    if (lastColumnBeforeWrite > 5) {
+      sheet.deleteColumns(6, lastColumnBeforeWrite - 5);
+    }
+
     // IMPORTANT: Only these five values are written.
     // There is deliberately NO Wedding field.
     sheet.appendRow([
