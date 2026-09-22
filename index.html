@@ -44,7 +44,12 @@
               }
             }
             var closingNames = document.querySelector(".closing-names");
-            if (closingNames) closingNames.textContent = couple.bride + " & " + couple.groom;
+            if (closingNames) {
+              closingNames.innerHTML =
+                '<span class="closing-name-line">' + couple.bride + '</span>' +
+                '<span class="closing-name-amp">&amp;</span>' +
+                '<span class="closing-name-line">' + couple.groom + '</span>';
+            }
           }
           if (couple.date) {
             var introDate = document.getElementById("introDate");
