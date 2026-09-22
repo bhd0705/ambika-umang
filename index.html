@@ -8,7 +8,7 @@
           if (!iso) return "";
           var p = iso.split("-");
           var mo = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-          return parseInt(p[2], 10) + " · " + (mo[parseInt(p[1], 10) - 1] || "") + " · " + p[0];
+          return parseInt(p[2], 10) + " " + (mo[parseInt(p[1], 10) - 1] || "") + " " + p[0];
         }
         function fmtLong(iso) {
           if (!iso) return "";
