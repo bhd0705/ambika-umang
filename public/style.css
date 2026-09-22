@@ -5767,3 +5767,118 @@
         background: rgba(6,13,11,.72) !important;
       }
     }
+
+
+/* AMBIKA-UMANG VISUAL FIXES */
+/* Keep each person's name together on the invitation card. */
+.inv-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  white-space: normal;
+  line-height: .92;
+}
+.inv-names .inv-name-line {
+  display: block;
+  white-space: nowrap;
+}
+.inv-names .inv-amp {
+  display: block;
+  line-height: .78;
+  margin: .04em 0 .02em;
+}
+
+/* All event-card headings use the same elegant handwritten/script face. */
+.farman-name {
+  font-family: var(--script) !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: .01em;
+  max-width: 92%;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Give the scroll content a little more vertical breathing room. */
+.farman-content {
+  top: 9%;
+  bottom: 9%;
+  justify-content: center;
+  gap: 4px;
+  padding-top: 3%;
+  padding-bottom: 2%;
+}
+
+.farman-motif {
+  width: clamp(104px, 30%, 160px);
+  height: clamp(104px, 30%, 160px);
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+.farman-rule {
+  margin: 5px 0;
+}
+
+.farman-schedule {
+  gap: 3px;
+  line-height: 1.16;
+}
+
+.farman-venue {
+  margin-top: 2px;
+  line-height: 1.18;
+}
+
+/* The final wedding scroll is the main/focal card, but keep all text inside it. */
+.farman-stop--main .farman-name {
+  font-size: clamp(2.2rem, 7.1vw, 3.3rem) !important;
+}
+
+.farman-stop--main .farman-motif {
+  width: clamp(108px, 31%, 164px);
+  height: clamp(108px, 31%, 164px);
+}
+
+@media (max-width: 620px) {
+  .inv-names {
+    font-size: clamp(3.25rem, 10.8vw, 4.35rem);
+  }
+
+  .inv-names .inv-amp {
+    font-size: .72em;
+    margin: .02em 0;
+  }
+
+  .farman-name {
+    font-size: clamp(2.25rem, 8.4vw, 3.25rem);
+  }
+
+  .farman-stop--main .farman-name {
+    font-size: clamp(2.05rem, 7.7vw, 3.05rem) !important;
+  }
+
+  .farman-motif,
+  .farman-stop--main .farman-motif {
+    width: clamp(96px, 29vw, 142px);
+    height: clamp(96px, 29vw, 142px);
+  }
+
+  .farman-datetime {
+    font-size: clamp(1rem, 3.15vw, 1.25rem);
+    line-height: 1.16;
+  }
+
+  .farman-schedule {
+    gap: 2px;
+    letter-spacing: .08em;
+  }
+
+  .farman-venue {
+    font-size: clamp(1.05rem, 3.35vw, 1.35rem);
+  }
+}
