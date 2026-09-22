@@ -5882,3 +5882,92 @@
     font-size: clamp(1.05rem, 3.35vw, 1.35rem);
   }
 }
+
+
+/* AMBIKA-UMANG PAGE 10 + RSVP POLISH */
+/* Page 10 — use the supplied story artwork as a complete invitation page. */
+.story-page-section {
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  background: #efe2c8;
+  overflow: hidden;
+}
+
+.story-page-frame {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.story-page-image {
+  display: block;
+  width: auto;
+  height: 100svh;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (max-width: 620px) {
+  .story-page-image {
+    width: 100%;
+    height: auto;
+    min-height: 100svh;
+    object-fit: contain;
+  }
+}
+
+/* Force every event title through the exact same script face. */
+.farman-name,
+.farman-stop .farman-name,
+.farman-stop--main .farman-name {
+  font-family: "Parisienne", cursive !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  font-feature-settings: normal !important;
+}
+
+/* The closing names should stay together on one line on phones. */
+.closing-names {
+  white-space: nowrap !important;
+  overflow: visible;
+  letter-spacing: 0 !important;
+  font-size: clamp(2rem, 8vw, 4.5rem) !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 620px) {
+  .closing-names {
+    font-size: clamp(1.85rem, 8.2vw, 3.15rem) !important;
+  }
+}
+
+/* RSVP: validation messages are shown in our styled helper instead of
+   relying on the browser's "Please match the requested format" popup. */
+.rsvp-form.is-error .rsvp-helper {
+  color: #e8a0a9;
+  opacity: 1;
+}
+
+.rsvp-field input.rsvp-invalid,
+.rsvp-field select.rsvp-invalid {
+  border-color: rgba(220, 92, 108, .95);
+  box-shadow: 0 0 0 1px rgba(220, 92, 108, .18);
+}
+
+.rsvp-helper {
+  min-height: 1.35em;
+  transition: color .2s ease, opacity .2s ease;
+}
