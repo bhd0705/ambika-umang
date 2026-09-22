@@ -2444,6 +2444,24 @@ if (document.readyState !== "loading") initRSVP();
   /* ── RSVP form → Google Sheets ── */
   var rsvpForm = document.getElementById('rsvpForm');
   if (rsvpForm) {
+    /* Set the earliest selectable arrival date as tomorrow as soon as the form loads. */
+    var rsvpArrivalInput = document.getElementById('rsvpArrivalDate');
+    var rsvpContactInput = document.getElementById('rsvpContact');
+    if (rsvpArrivalInput) {
+      var rsvpToday = new Date();
+      rsvpToday.setHours(0, 0, 0, 0);
+      rsvpToday.setDate(rsvpToday.getDate() + 1);
+      rsvpArrivalInput.min = rsvpToday.getFullYear() + '-' +
+        String(rsvpToday.getMonth() + 1).padStart(2, '0') + '-' +
+        String(rsvpToday.getDate()).padStart(2, '0');
+    }
+    if (rsvpContactInput) {
+      rsvpContactInput.addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        this.classList.remove('rsvp-invalid');
+      });
+    }
+
     rsvpForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
