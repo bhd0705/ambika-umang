@@ -6041,13 +6041,6 @@
 }
 
 
-/* Gallery wall restored: the single-photo override is removed. */
-/* Gallery wall restored: hide only the obsolete single-image styles. */
-.gallery-section .gal-single-image-wrap,
-.gallery-section .gal-single-image { display: none !important; }
-.gallery-section .gal-bg,
-.gallery-section .gal-bg-vignette { display: block; }
-
 /* The title is deliberately split into two clean lines. */
 /* The title is deliberately split into two clean lines. */
 .farman-name .event-name-line {
