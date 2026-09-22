@@ -2317,7 +2317,32 @@ if (document.readyState !== "loading") initRSVP();
     }
   }
 
-  /* ── RSVP — headline ── */
+  /* ── Optional sections ── */
+  var sectionCfg = C.sections || {};
+  if (sectionCfg.closing === false) {
+    var closingSection = document.getElementById('closing');
+    if (closingSection) closingSection.style.display = 'none';
+  }
+  if (sectionCfg.couple === false) {
+    var coupleSection2 = document.getElementById('couple');
+    if (coupleSection2) coupleSection2.style.display = 'none';
+  }
+  if (sectionCfg.gallery === false) {
+    var gallerySection2 = document.getElementById('gallery');
+    if (gallerySection2) gallerySection2.style.display = 'none';
+  }
+  if (sectionCfg.thingsToKnow === false || C.showThingsToKnow === false) {
+    var thingsSection2 = document.getElementById('things');
+    if (thingsSection2) thingsSection2.style.display = 'none';
+    var thingsNav2 = document.querySelector('.menu-link[href="#things"]');
+    if (thingsNav2) {
+      thingsNav2.style.display = 'none';
+      var thingsDivider2 = thingsNav2.previousElementSibling;
+      if (thingsDivider2 && thingsDivider2.classList.contains('menu-divider')) thingsDivider2.style.display = 'none';
+    }
+  }
+
+    /* ── RSVP — headline ── */
   var headline = document.getElementById('rsvpHeadline');
   if (headline && rsvp.heading) {
     var joinEl = headline.querySelector('.rsvp-hl-join');
