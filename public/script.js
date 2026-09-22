@@ -596,7 +596,7 @@ function renderEvents() {
         <div class="farman-content" aria-label="${evt.name} ceremony details">
           <img class="farman-motif"
                src="${evt.icon}" alt="${evt.name} motif" decoding="async">
-          <h3 class="farman-name">${evt.name}</h3>
+          <h3 class="farman-name">${evt.id === "rings-rhythms" ? '<span class="event-name-line">RINGS &amp;</span><span class="event-name-line">RHYTHMS</span>' : evt.name}</h3>
           <div class="farman-rule" aria-hidden="true"></div>
           ${evt.schedule && evt.schedule.length
             ? `<div class="farman-datetime farman-schedule">${evt.schedule.map(function(line) {
