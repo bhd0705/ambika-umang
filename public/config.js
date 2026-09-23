@@ -75,7 +75,7 @@ window.__WEDDING_CONFIG__ = {
       name: "A Touch of Tradition",
       date: "2026-11-25",
       time: "5:00 PM",
-      venue: "The Royal Bengal Hall",
+      venue: "Madira Avenue",
       desc: "Tilak",
       mapsLink: ""
     },
@@ -113,7 +113,7 @@ window.__WEDDING_CONFIG__ = {
     {
       id: "whatsapp",
       label: "Wedding Hashtag",
-      value: "Share your favourite moments with the family and friends celebrating Ambika & Umang."
+      value: "Share your favourite moments with the family and friends celebrating \n#AmbikaBringsउमंग"
     }
   ],
   showThingsToKnow: true,
