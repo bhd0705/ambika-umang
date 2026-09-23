@@ -1804,6 +1804,10 @@ function buildTTKCard(item, isLastOdd) {
         match.description = ttk.value || match.description;
         match.enabled = true;
         if (ttk.iconKey) match.icon = TTK_BASE + ttk.iconKey;
+        if (resolvedType === 'hashtag') {
+          match.linkLabel = null;
+          match.linkUrl = null;
+        }
         if (ttk.mapsLink) {
           match.linkLabel = 'Open in Maps';
           match.linkUrl = ttk.mapsLink;
