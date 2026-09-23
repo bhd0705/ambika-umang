@@ -61,7 +61,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "splash-of-gold",
-      icon: "assets/event/ico2-haldi.svg",
+      icon: "assets/event/Haldi.png",
       name: "Splash of Gold",
       date: "2026-11-25",
       time: "10:00 AM",
