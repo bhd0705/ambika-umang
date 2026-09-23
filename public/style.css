@@ -707,6 +707,7 @@
 
     .intro-ganesh {
       top: 27svh;
+      z-index: 12;
       font-family: var(--display);
       font-size: clamp(.72rem, 2.7vw, .95rem);
       font-weight: 600;
@@ -3144,6 +3145,9 @@
     @media (max-width: 900px) {
     }
     @media (max-width: 620px) {
+      /* Keep the Ganesh invocation clear of the hanging jhoomer on phones. */
+      .intro-jhoomer { width: 160px; }
+      .intro-ganesh { z-index: 12; }
       .invite-arch-frame {
         height: auto;
         width: 125vw;
