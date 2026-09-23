@@ -597,6 +597,7 @@ function renderEvents() {
           <img class="farman-motif"
                src="${evt.icon}" alt="${evt.name} motif" decoding="async">
           <h3 class="farman-name">${evt.id === "rings-rhythms" ? '<span class="event-name-line">Rings &amp;</span><span class="event-name-line">Rhythms</span>' : evt.name}</h3>
+          ${noteHtml}${mapHtml}${evt.map ? `<div class="farman-map-rule" aria-hidden="true"></div>` : ""}
           <div class="farman-rule" aria-hidden="true"></div>
           ${evt.schedule && evt.schedule.length
             ? `<div class="farman-datetime farman-schedule">${evt.schedule.map(function(line) {
@@ -604,7 +605,6 @@ function renderEvents() {
               }).join('')}</div>`
             : `<p class="farman-datetime">${evt.date}${evt.time ? ' &middot; ' + evt.time : ''}</p>`}
           ${evt.venue ? `<p class="farman-venue">${evt.venue}</p>` : ''}
-          ${noteHtml}${mapHtml}${evt.map ? `<div class="farman-map-rule" aria-hidden="true"></div>` : ""}
         </div>
       </div>`.trim();
 
