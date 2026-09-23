@@ -706,7 +706,7 @@
     }
 
     .intro-ganesh {
-      top: 19svh;
+      top: 27svh;
       font-family: var(--display);
       font-size: clamp(.72rem, 2.7vw, .95rem);
       font-weight: 600;
