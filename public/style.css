@@ -804,7 +804,7 @@
 
     /* DATE — Fix 5: pill backdrop + gold shadow for guaranteed legibility */
     .intro-reveal .date {
-      top: 57.2svh;
+      top: 58.5svh;
       font-family: var(--display);
       font-size: clamp(1.08rem, 4.45vw, 1.28rem);
       font-weight: 600;
@@ -825,7 +825,7 @@
 
     /* VENUE — Fix 5: rose-amber glow echoing the floral palette */
     .intro-reveal .venue {
-      top: 62.2svh;
+      top: 67svh;
       font-family: var(--display);
       font-size: clamp(1.02rem, 4.05vw, 1.22rem);
       font-style: italic; font-weight: 500;
@@ -1388,6 +1388,18 @@
     }
 
     /* Alternative top block when no grandparents — replaces blessing + kicker */
+    .inv-ganesh {
+      font-family: var(--display);
+      font-size: .72rem;
+      letter-spacing: .20em;
+      color: var(--rose-dark);
+      font-weight: 600;
+      margin: 0 0 .35rem;
+      opacity: .82;
+      text-align: center;
+      white-space: nowrap;
+    }
+
     .inv-blessing-alt {
       font-family: var(--display);
       display: flex;
@@ -1505,9 +1517,10 @@
       width: 92%;
       text-shadow: 0 1px 4px rgba(247,238,220,.40);
     }
-    .inv-parents p { margin: 0; padding: 6px 0; }
-    .inv-parents p + p {
+    .inv-parents p { margin: 0; padding: 3px 0; }
+    .inv-parents p:nth-child(3) {
       border-top: 1px solid rgba(119,40,58,.14);
+      padding-top: 6px;
     }
 
     /* Short occasion line */
@@ -4742,14 +4755,20 @@
       }
 
       .invite-text-content {
-        top: 58%;
+        top: 57%;
         bottom: auto;
         transform: translate(-50%, -50%);
         max-width: min(500px, 52vw);
         min-height: 0;
-        height: min(480px, 50svh);
+        height: min(560px, 56svh);
         justify-content: center;
         padding-top: 0;
+      }
+
+      .inv-ganesh {
+        font-size: .68rem;
+        letter-spacing: .15em;
+        margin-bottom: .15rem;
       }
 
       .inv-blessing,
