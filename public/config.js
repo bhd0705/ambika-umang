@@ -81,7 +81,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "starlit-soiree",
-      icon: "assets/event/Vidaai.png",
+      icon: "assets/event/Wedding-001.png",
       name: "The Starlit Soirée",
       date: "2026-11-25",
       time: "",
