@@ -705,6 +705,23 @@
       width: min(600px, calc(100vw - 24px));
     }
 
+    .intro-ganesh {
+      top: 19svh;
+      font-family: var(--display);
+      font-size: clamp(.72rem, 2.7vw, .95rem);
+      font-weight: 600;
+      letter-spacing: .16em;
+      color: rgba(252, 241, 218, .96);
+      text-shadow:
+        0 1px 2px rgba(0,0,0,.95),
+        0 0 18px rgba(216,169,87,.42);
+      white-space: nowrap;
+    }
+    .intro.show-names .intro-ganesh {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     /* NAMES — cinematic title card, maximum legibility */
     .intro-reveal .names {
       top: 34svh;
@@ -1388,18 +1405,6 @@
     }
 
     /* Alternative top block when no grandparents — replaces blessing + kicker */
-    .inv-ganesh {
-      font-family: var(--display);
-      font-size: .72rem;
-      letter-spacing: .20em;
-      color: var(--rose-dark);
-      font-weight: 600;
-      margin: 0 0 .35rem;
-      opacity: .82;
-      text-align: center;
-      white-space: nowrap;
-    }
-
     .inv-blessing-alt {
       font-family: var(--display);
       display: flex;
@@ -4763,12 +4768,6 @@
         height: min(560px, 56svh);
         justify-content: center;
         padding-top: 0;
-      }
-
-      .inv-ganesh {
-        font-size: .68rem;
-        letter-spacing: .15em;
-        margin-bottom: .15rem;
       }
 
       .inv-blessing,
