@@ -1804,7 +1804,7 @@ function buildTTKCard(item, isLastOdd) {
         match.description = ttk.value || match.description;
         match.enabled = true;
         if (ttk.iconKey) match.icon = TTK_BASE + ttk.iconKey;
-        if (resolvedType === 'hashtag') {
+        if (resolvedType === 'hashtag' || ttk.label === 'Wedding Hashtag') {
           match.linkLabel = null;
           match.linkUrl = null;
         }
