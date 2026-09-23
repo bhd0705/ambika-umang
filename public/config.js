@@ -13,7 +13,7 @@ window.__WEDDING_CONFIG__ = {
     brideFather: "Mr. Vijay Kedia",
     brideMother: "Mrs. Seema Kedia",
     groomFather: "Late Mr. Sandeep Agrawal",
-    groomMother: "\nLate Mrs. Sudha Agrawal",
+    groomMother: "Late Mrs. Sudha Agrawal",
     showGrandparents: false,
     brideGF: "", brideGM: "", groomGF: "", groomGM: ""
   },
