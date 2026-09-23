@@ -21,7 +21,7 @@ window.__WEDDING_CONFIG__ = {
   events: [
     {
       id: "welcome-lunch",
-      icon: "assets/event/ico2-welcome-lunch.svg",
+      icon: "assets/event/Welcome-Lunch.png",
       name: "Savour the Beginning",
       date: "2026-11-24",
       time: "12:30 PM",
@@ -31,7 +31,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "bhaat",
-      icon: "assets/event/ico2-bhaat.svg",
+      icon: "assets/event/Reception.png",
       name: "Mamere Ki Saugaat",
       date: "2026-11-24",
       time: "2:00 PM",
@@ -71,7 +71,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "tilak",
-      icon: "assets/event/ico2-tilak.svg",
+      icon: "assets/event/Shaadi.png",
       name: "A Touch of Tradition",
       date: "2026-11-25",
       time: "5:00 PM",
