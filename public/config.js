@@ -51,7 +51,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "midnight-mehfil",
-      icon: "assets/event/ico2-midnight-mehfil.svg",
+      icon: "assets/event/Sufi-Night.png",
       name: "The Midnight Mehfil",
       date: "2026-11-24",
       time: "11:00 PM onwards",
