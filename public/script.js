@@ -975,18 +975,9 @@ function renderGallery() {
       photoWrap.appendChild(ph);
     }
 
-    /* Frame PNG on top */
-    const frameImg = document.createElement("img");
-    frameImg.className = "gal-frame-img";
-    frameImg.src = GAL_FRAMES[photo.orient];
-    frameImg.alt = "";
-    frameImg.setAttribute("aria-hidden", "true");
-    frameImg.decoding = "async";
-    frameImg.draggable = false;
-
+    /* Gallery photo only — decorative frame removed */
     inner.appendChild(dust);
     inner.appendChild(photoWrap);
-    inner.appendChild(frameImg);
     slot.appendChild(inner);
 
     /* Caption */
