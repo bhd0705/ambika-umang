@@ -89,9 +89,9 @@ window.__WEDDING_CONFIG__ = {
       desc: "",
       schedule: [
         "Baraat • 6:00 PM",
-        "Reception • 7:00 PM onwards",
+        "Reception • 7:00 PM",
         "Varmala • 8:30 PM",
-        "Wedding • 11:30 PM onwards"
+        "Wedding • 11:30 PM"
       ],
       mapsLink: ""
     }
