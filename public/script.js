@@ -2146,7 +2146,7 @@ if (document.readyState !== "loading") initRSVP();
     invParents.innerHTML =
       '<p>' + father1 + '</p>' +
       '<p>' + mother1 + '</p>' +
-      '<p>' + father2 + '<br>' + mother2 + '</p>';
+      '<p>' + father2 + ' &amp;<br>' + mother2 + '</p>';
   }
 
   /* ── Invite — date and venue ── */
