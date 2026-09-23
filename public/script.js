@@ -2135,9 +2135,15 @@ if (document.readyState !== "loading") initRSVP();
     var bF = invite.brideFather || '', bM = invite.brideMother || '';
     var gF = invite.groomFather || '', gM = invite.groomMother || '';
     var isGroomFirst = invite.parentsOrder === 'groom_first';
-    var line1 = (isGroomFirst ? 'S/O ' : 'D/O ') + bF + ' &amp; ' + bM;
-    var line2 = (isGroomFirst ? 'D/O ' : 'S/O ') + gF + ' &amp; ' + gM;
-    invParents.innerHTML = '<p>' + line1 + '</p><p>' + line2 + '</p>';
+    var father1 = (isGroomFirst ? 'S/O ' : 'D/O ') + bF;
+    var mother1 = bM;
+    var father2 = (isGroomFirst ? 'D/O ' : 'S/O ') + gF;
+    var mother2 = gM;
+    invParents.innerHTML =
+      '<p>' + father1 + '</p>' +
+      '<p>' + mother1 + '</p>' +
+      '<p>' + father2 + '</p>' +
+      '<p>' + mother2 + '</p>';
   }
 
   /* ── Invite — date and venue ── */
@@ -2324,7 +2330,7 @@ if (document.readyState !== "loading") initRSVP();
   var inviteKicker = document.querySelector('.inv-kicker');
   if (inviteKicker) inviteKicker.textContent = '';
   var blessingAlt = document.querySelector('.inv-blessing-alt');
-  if (blessingAlt && !invite.showGrandparents) blessingAlt.style.display = 'none';
+  if (blessingAlt && !invite.showGrandparents) blessingAlt.style.display = '';
 
   /* ── RSVP family name ── */
   var rsvpBody2 = document.querySelector('.rsvp-body');
