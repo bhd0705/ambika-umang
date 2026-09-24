@@ -41,7 +41,7 @@ window.__WEDDING_CONFIG__ = {
     },
     {
       id: "rings-rhythms",
-      icon: "assets/event/Sangeet.png",
+      icon: "assets/event/Engagement.png",
       name: "Rings & Rhythms",
       date: "2026-11-24",
       time: "6:00 PM onwards",
