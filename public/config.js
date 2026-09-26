@@ -9,7 +9,7 @@ window.__WEDDING_CONFIG__ = {
   },
 
   invite: {
-    parentsOrder: "bride_first",
+    parentsOrder: "groom_first",
     brideFather: "Mr. Vijay Kedia",
     brideMother: "Mrs. Seema Kedia",
     groomFather: "Late Mr. Sandeep Agrawal",
