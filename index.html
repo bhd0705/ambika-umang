@@ -22,23 +22,23 @@
           var couple = C.couple;
           var invite = C.invite || {};
           if (couple.bride && couple.groom) {
-            document.title = couple.bride + " & " + couple.groom + "'s Wedding";
+            document.title = couple.groom + " & " + couple.bride + "'s Wedding";
             var introNames = document.getElementById("introNames");
             if (introNames) {
               var words = Array.from(introNames.querySelectorAll(".word")).filter(function (w) {
                 return !w.classList.contains("amp-wrap");
               });
               if (words.length >= 2) {
-                words[0].textContent = couple.bride;
-                words[words.length - 1].textContent = couple.groom;
+                words[0].textContent = couple.groom;
+                words[words.length - 1].textContent = couple.bride;
               }
             }
             var invNames = document.getElementById("inviteTitle");
             if (invNames) {
               var invLines = invNames.querySelectorAll(".inv-name-line");
               if (invLines.length >= 2) {
-                invLines[0].textContent = couple.bride;
-                invLines[invLines.length - 1].textContent = couple.groom;
+                invLines[0].textContent = couple.groom;
+                invLines[invLines.length - 1].textContent = couple.bride;
               } else {
                 invNames.innerHTML = '<span class="inv-name-line">' + couple.bride + '</span><span class="inv-amp">&amp;</span><span class="inv-name-line">' + couple.groom + '</span>';
               }
@@ -46,9 +46,9 @@
             var closingNames = document.querySelector(".closing-names");
             if (closingNames) {
               closingNames.innerHTML =
-                '<span class="closing-name-line">' + couple.bride + '</span>' +
+                '<span class="closing-name-line">' + couple.groom + '</span>' +
                 '<span class="closing-name-amp">&amp;</span>' +
-                '<span class="closing-name-line">' + couple.groom + '</span>';
+                '<span class="closing-name-line">' + couple.bride + '</span>';
             }
           }
           if (couple.date) {
@@ -70,9 +70,11 @@
             var bF = invite.brideFather || "", bM = invite.brideMother || "";
             var gF = invite.groomFather || "", gM = invite.groomMother || "";
             var groomFirst = invite.parentsOrder === "groom_first";
-            invParents.innerHTML =
-              "<p>" + (groomFirst ? "S/O " : "D/O ") + bF + " &amp; " + bM + "</p>" +
-              "<p>" + (groomFirst ? "D/O " : "S/O ") + gF + " &amp;<br>" + gM + "</p>";
+            invParents.innerHTML = groomFirst
+              ? "<p>S/O " + gF + " &amp; " + gM + "</p>" +
+                "<p>D/O " + bF + " &amp;<br>" + bM + "</p>"
+              : "<p>D/O " + bF + " &amp; " + bM + "</p>" +
+                "<p>S/O " + gF + " &amp;<br>" + gM + "</p>";
           }
         }
         if (document.readyState === "loading") {
@@ -153,7 +155,7 @@
   <div class="intro-reveal" id="introReveal" aria-live="polite">
     <p class="intro-ganesh intro-reveal-item">|| Om Shree Ganeshaya Namah ||</p>
     <h1 class="names intro-reveal-item" id="introNames">
-      <span class="word">Dr. Ambika</span> <span class="word amp-wrap"><span class="amp">&amp;</span></span><br><span class="word">Dr. Umang</span>
+      <span class="word">Dr. Umang</span> <span class="word amp-wrap"><span class="amp">&amp;</span></span><br><span class="word">Dr. Ambika</span>
     </h1>
     <div class="ornament intro-reveal-item" id="introOrnament">
       <span></span><i></i><span></span>
@@ -225,14 +227,14 @@
       <img class="inv-lotus-div" src="assets/invite/pn-inv-div-lotus-divider-x-v01.webp"
            alt="" aria-hidden="true" decoding="async">
 
-      <h2 class="inv-names" id="inviteTitle"><span class="inv-name-line">Dr. Ambika</span><span class="inv-amp">&amp;</span><span class="inv-name-line">Dr. Umang</span></h2>
+      <h2 class="inv-names" id="inviteTitle"><span class="inv-name-line">Dr. Umang</span><span class="inv-amp">&amp;</span><span class="inv-name-line">Dr. Ambika</span></h2>
 
       <img class="inv-lotus-div" src="assets/invite/pn-inv-div-lotus-divider-x-v01.webp"
            alt="" aria-hidden="true" decoding="async">
 
       <div class="inv-parents">
-        <p>D/O Mr. Rajesh Sharma &amp; Mrs. Kavita Sharma</p>
         <p>S/O Mr. Sanjay Kapoor &amp; Mrs. Neeta Kapoor</p>
+        <p>D/O Mr. Rajesh Sharma &amp; Mrs. Kavita Sharma</p>
       </div>
 
       <p class="inv-occasion">invite you to celebrate their wedding</p>
