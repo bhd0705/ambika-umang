@@ -2108,7 +2108,7 @@ if (document.readyState !== "loading") initRSVP();
 
   /* ── Page title ── */
   if (couple.bride && couple.groom) {
-    document.title = couple.bride + ' & ' + couple.groom + ' · ShaadiPath';
+    document.title = couple.groom + ' & ' + couple.bride + ' · ShaadiPath';
   }
 
   /* ── Intro section names, date, venue ── */
@@ -2118,8 +2118,8 @@ if (document.readyState !== "loading") initRSVP();
       return !w.classList.contains('amp-wrap');
     });
     if (words.length >= 2) {
-      words[0].textContent = couple.bride;
-      words[words.length - 1].textContent = couple.groom;
+      words[0].textContent = couple.groom;
+      words[words.length - 1].textContent = couple.bride;
     }
   }
   var introDate = document.getElementById('introDate');
@@ -2130,7 +2130,7 @@ if (document.readyState !== "loading") initRSVP();
   /* ── Invite — couple names ── */
   var invNames = document.querySelector('.inv-names');
   if (invNames && couple.bride && couple.groom) {
-    invNames.innerHTML = '<span class="inv-name-line">' + couple.bride + '</span><span class="inv-amp">&amp;</span><span class="inv-name-line">' + couple.groom + '</span>';
+    invNames.innerHTML = '<span class="inv-name-line">' + couple.groom + '</span><span class="inv-amp">&amp;</span><span class="inv-name-line">' + couple.bride + '</span>';
   }
 
   /* ── Invite — parents ── */
@@ -2139,14 +2139,11 @@ if (document.readyState !== "loading") initRSVP();
     var bF = invite.brideFather || '', bM = invite.brideMother || '';
     var gF = invite.groomFather || '', gM = invite.groomMother || '';
     var isGroomFirst = invite.parentsOrder === 'groom_first';
-    var father1 = (isGroomFirst ? 'S/O ' : 'D/O ') + bF;
-    var mother1 = bM;
-    var father2 = (isGroomFirst ? 'D/O ' : 'S/O ') + gF;
-    var mother2 = gM;
-    invParents.innerHTML =
-      '<p>' + father1 + '</p>' +
-      '<p>' + mother1 + '</p>' +
-      '<p>' + father2 + ' &amp;<br>' + mother2 + '</p>';
+    invParents.innerHTML = isGroomFirst
+      ? '<p>S/O ' + gF + ' &amp; ' + gM + '</p>' +
+        '<p>D/O ' + bF + ' &amp;<br>' + bM + '</p>'
+      : '<p>D/O ' + bF + ' &amp; ' + bM + '</p>' +
+        '<p>S/O ' + gF + ' &amp;<br>' + gM + '</p>';
   }
 
   /* ── Invite — date and venue ── */
@@ -2313,7 +2310,7 @@ if (document.readyState !== "loading") initRSVP();
       if (ph) {
         var full = ph.startsWith('91') ? ph : '91' + ph;
         var msg = encodeURIComponent(
-          'Hi ' + couple.bride + ' & ' + couple.groom + "! I'll be there to celebrate with you!"
+          'Hi ' + couple.groom + ' & ' + couple.bride + "! I'll be there to celebrate with you!"
         );
         rsvpBtn.href = 'https://wa.me/' + full + '?text=' + msg;
       }
@@ -2342,7 +2339,7 @@ if (document.readyState !== "loading") initRSVP();
   /* ── Closing section ── */
   var closingNames = document.querySelector('.closing-names');
   if (closingNames && couple.bride && couple.groom) {
-    closingNames.textContent = couple.bride + ' & ' + couple.groom;
+    closingNames.textContent = couple.groom + ' & ' + couple.bride;
   }
   var closingDate = document.querySelector('.closing-date');
   if (closingDate && couple.date) closingDate.textContent = fmtDot(couple.date);
